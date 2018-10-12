@@ -27,6 +27,8 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 		System.out.println(list.size());
 		
 		
+		ArrayList list1 = new ArrayList();
+		
 	}
 	
 	private Object[] elementData;//存放对象的对象数组

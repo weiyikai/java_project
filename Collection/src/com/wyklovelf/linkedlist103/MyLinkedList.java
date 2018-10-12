@@ -6,7 +6,7 @@ package com.wyklovelf.linkedlist103;
  * @author wyk
  *
  */
-public class LinkedList /*implements List*/{//这里只是简单的重写List接口中的主要方法，并不规范哦。
+public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 	
 	private Node first;  
 	
@@ -60,8 +60,33 @@ public class LinkedList /*implements List*/{//这里只是简单的重写List接口中的主要
 //		}
 //	}
 	
+	public Object get(int index) {
+		if(null == first) {//头节点为空，表示此列表为空，返回null
+			return null;
+		}else {
+			Node temp = new Node();
+			
+			temp = first;
+			
+			int count = 0;
+			
+			while(temp.next != null) {
+				
+				if(count == index) {
+					return temp.obj;
+				}
+				
+				temp = temp.next;
+				
+				count++;
+			}
+			
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		MyLinkedList list = new MyLinkedList();
 		
 		list.add("aaa");
 		
@@ -78,5 +103,7 @@ public class LinkedList /*implements List*/{//这里只是简单的重写List接口中的主要
 		list.add("ddd");
 		
 		System.out.println(list.size());
+		
+		System.out.println(list.get(4));
 	}
 }
