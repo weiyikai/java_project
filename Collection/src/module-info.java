@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author wyk
+ *
+ */
+module Collection {
+}
