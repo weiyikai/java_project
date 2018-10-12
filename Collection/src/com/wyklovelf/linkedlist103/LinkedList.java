@@ -8,7 +8,7 @@ package com.wyklovelf.linkedlist103;
  */
 public class LinkedList /*implements List*/{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 	
-	private Node first;
+	private Node first;  
 	
 	private Node last;
 	
