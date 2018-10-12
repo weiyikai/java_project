@@ -17,7 +17,7 @@ public class Test01 {
 		
 		list.add(new Dog());
 		
-		list.add(1234);//包装类自动装箱功能
+//		list.add(1234);//包装类自动装箱功能
 		
 		System.out.println(list.size());
 		
