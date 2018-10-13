@@ -1,9 +1,9 @@
-///**
-// * 
-// */
-///**
-// * @author wyk
-// *
-// */
-//module Collection {
-//}
+/**
+ * 
+ */
+/**
+ * @author wyk
+ *
+ */
+module Collection {
+}

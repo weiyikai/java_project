@@ -1,5 +1,6 @@
 package com.wyklovelf.linkedlist103;
 
+import java.util.LinkedList;
 
 /**
  * 
@@ -129,6 +130,15 @@ public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 			
 			size--;
 		}
+	}
+	
+	/**
+	 * insert方法分为
+	 * @param index
+	 * @param obj
+	 */
+	public void insert(int index,Object obj) {
+		LinkedList tp = new LinkedList();
 	}
 	
 	public static void main(String[] args) {

@@ -22,12 +22,20 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 		
 		System.out.println(list.size());
 		
-		list.add(3, "ddd");
+		list.add(2, "ddd");
 		
 		System.out.println(list.size());
 		
 		
-		ArrayList list1 = new ArrayList();
+		//toArray方法的使用
+//		ArrayList list1 = new ArrayList();
+//		list1.add("123");
+//		list1.add("456");
+//		list1.add("789");
+//		Object []str = list1.toArray();
+//		for (int i = 0; i < str.length; i++) {
+//			System.out.println(str[i].toString());
+//		}
 		
 	}
 	
@@ -139,17 +147,7 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 	public void add(int index,Object obj) {
 //		this.rangeCheck(index);
 		//这里rangeCheck函数种index == size的情况要排除，否则无法扩容哦,因为此时的size == length是需要扩容而不是要抛出异常
-//		if(index < 0 || index > size) {
-//			try {
-//				throw new Exception();
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-		
-		//当然也可以直接与数组大小：length进行比较看是否需要扩容哦。
-		if(index < 0 || index > elementData.length) {
+		if(index < 0 || index > size) {
 			try {
 				throw new Exception();
 			} catch (Exception e) {
@@ -157,6 +155,16 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 				e.printStackTrace();
 			}
 		}
+		
+		//当然也可以直接与数组大小：length进行比较看是否需要扩容哦。
+//		if(index < 0 || index > elementData.length) {
+//			try {
+//				throw new Exception();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
 		ensureCapacity();//数组扩容
 		
