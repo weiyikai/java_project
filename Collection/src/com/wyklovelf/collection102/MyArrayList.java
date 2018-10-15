@@ -22,7 +22,7 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 		
 		System.out.println(list.size());
 		
-		list.add(2, "ddd");
+		list.add(0, "ddd");
 		
 		System.out.println(list.size());
 		
@@ -115,7 +115,7 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 			}
 		}
 		
-		int numMoved = size - index - 1;//要前移元素的个数，实际为index - (index+1),总数减去移除元素下标+1
+		int numMoved = size - index - 1;//要前移元素的个数，实际为size - (index+1),总数减去移除元素下标+1
 		
 		if(numMoved > 0) {
 			System.arraycopy(elementData, index+1, elementData, index, numMoved);
@@ -168,7 +168,19 @@ public class MyArrayList /*implements List*/{//可以加"implements List"显得更为规
 		
 		ensureCapacity();//数组扩容
 		
-		elementData[size] = obj;
+		if(size == index) {
+			elementData[size] = obj;
+		}else {
+			
+			int numMoved = size - index;//
+			
+			if(numMoved > 0) {
+				System.arraycopy(elementData, index, elementData, index + 1, numMoved);
+				elementData[index] = obj;
+			}
+			
+			
+		}
 		
 		size++;
 	}
