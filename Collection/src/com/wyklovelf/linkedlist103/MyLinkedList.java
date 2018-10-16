@@ -119,13 +119,19 @@ public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 			for (int i = 0; i < index; i++) {//找到要删除的节点的位置
 				temp = temp.next;
 			}
-			
-			if(null == temp.next) {//如果要删除的节点是尾节点
+			                        
+			if(first != temp && null == temp.next) {//如果要删除的节点是尾节点,是尾节点的理解：就是当前节点不是头节点,并且它的next属性为空
 				temp.pervious.next = null;
-			}else {
+				last = temp.pervious;
+			}else if(first == temp && null == temp.next){//当前列表只有一个节点，即头节点就是要删除的当前节点
+				first = null;
+			}else if(first == temp && null != temp.next) {//要删除的当前节点是头节点，而且此列表中不止这一个头节点
+				temp.next.pervious = null;
+				first = temp.next;
+			}else if(first != temp && null != temp.next) {//当前节点既不是头节点，也不是尾节点
 				temp.pervious.next = temp.next;
-				
-				temp.next.pervious = temp.pervious;
+				 
+				temp.next.pervious = temp.pervious;  
 			}
 			
 			size--;

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 对ArrayList的一些常用方法的使用
- * @author wyk
+ * @author wake
  *
  */
 public class ArrayListTest {
