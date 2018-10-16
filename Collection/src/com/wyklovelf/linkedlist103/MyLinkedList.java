@@ -139,12 +139,65 @@ public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 	}
 	
 	/**
-	 * insert方法分为
+	 * 重载add方法,在下表为index的元素之前插入属性为obj的元素,这里的插入只允许插在index处元素的前面
 	 * @param index
 	 * @param obj
 	 */
-	public void insert(int index,Object obj) {
-		LinkedList tp = new LinkedList();
+	public void add(int index,Object obj) {
+//		LinkedList tp = new LinkedList();
+		if(index < 0 || index >= size) {
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		Node n = new Node();
+		
+		n.obj = obj;
+		
+		//LinkedList不需要扩容
+		if(null == first) {
+			
+			n.pervious = null;
+			
+			n.next = null;
+			
+			first = n;
+			
+			last = n;
+		}else {
+			Node temp = new Node();
+			
+			temp = first;
+			
+			for (int i = 0; i < index; i++) {//找到要删除的节点的位置
+				temp = temp.next;
+			}
+			
+			if(first == temp) {//如果要在头节点前插入一个节点
+				temp.pervious = n;
+				
+				n.next = temp;
+				
+				n.pervious = null;
+				
+				first = n;
+		
+			}else {
+				temp.pervious.next = n;
+				
+				n.pervious = temp.pervious;
+				
+				n.next = temp;
+				
+				temp.pervious = n;
+			
+			}
+			size++;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -168,8 +221,10 @@ public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 		
 		System.out.println(list.get(3));
 		
-		list.remove(3);
+		list.add(3,"DDD");
 		
-		System.out.println(list.size());
+//		list.remove(3);
+		
+//		System.out.println(list.size());
 	}
 }
