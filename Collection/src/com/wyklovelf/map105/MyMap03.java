@@ -17,8 +17,12 @@ public class MyMap03 {
 	
 	public void put(Object key,Object value) {
 		MyEntry e = new MyEntry(key,value);
+	
+		int hash = e.hashCode();//hashCode()可能返回负数。
 		
-		int a = e.hashCode()%arr.length;
+		hash = hash < 0 ? -hash:hash;
+		
+		int a = hash%arr.length;
 		
 		if(null == arr[a]) {
 			LinkedList list = new LinkedList();
@@ -39,7 +43,7 @@ public class MyMap03 {
 				}
 			}
 			
-			arr[a].add(e);
+		 	arr[a].add(e);
 		}
 	}
 	

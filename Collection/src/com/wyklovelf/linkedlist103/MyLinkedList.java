@@ -21,6 +21,35 @@ public class MyLinkedList{//这里只是简单的重写List接口中的主要方法，并不规范哦。
 		return size;
 	}
 	
+	
+	/**
+	 * 根据index索引遍历链表(二分法)
+	 * @return
+	 */
+	public Node node(int index) {
+		Node temp = null;
+		
+		if(null != first) {
+			if(index < this.size >> 2) {
+				
+				temp = first;
+				
+				for (int i = 0; i < index; i++) {
+					temp = temp.next;
+				}
+			}else {
+				
+				temp = this.last;
+				
+				for (int i = this.size - 1; i > index ; i--) {
+					temp = temp.pervious;
+				}
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * add方法，在列表尾巴上加节点（！=插入）
 	 * @param obj
