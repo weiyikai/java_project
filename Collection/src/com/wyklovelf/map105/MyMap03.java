@@ -18,13 +18,13 @@ public class MyMap03 {
 	public void put(Object key,Object value) {
 		MyEntry e = new MyEntry(key,value);
 	
-		int hash = e.hashCode();//hashCode()可能返回负数。
+		int hash = e.key.hashCode();//hashCode()可能返回负数。
 		
 		hash = hash < 0 ? -hash:hash;
 		
 		int a = hash%arr.length;
 		
-		if(null == arr[a]) {
+		if(null == arr[a]) {//arr[a]处的链表为空,需要在此处新建一个链表，并放入e条目。
 			LinkedList list = new LinkedList();
 			
 			list.add(e);
@@ -43,8 +43,9 @@ public class MyMap03 {
 				}
 			}
 			
-		 	arr[a].add(e);
+		 	arr[a].add(e);//键不重复则在arr[a]处的链表中直接放入e条目即可
 		}
+		size++;
 	}
 	
 	
@@ -71,13 +72,24 @@ public class MyMap03 {
 	}
 	
 	public static void main(String[] args) {
+		
+//		//hashCode相等，其内容不一定相同。但内容相等，hashCode一定相等
+//		
+//		MyEntry e1 = new MyEntry("高琪","杨幂");
+//		
+//		MyEntry e2 = new MyEntry("高琪","张曼玉");
+//		
+//		System.out.println(e1.key.hashCode()%999);
+//		
+//		System.out.println(e2.key.hashCode()%999);
+		
 		MyMap03 m3 = new MyMap03();
 		
-		m3.put("高琪", new Wife("杨幂"));
+		m3.put(1, new Wife("杨幂"));
 		
-		m3.put("高琪", new Wife("张曼玉"));
+		m3.put(1, new Wife("张曼玉"));
 		
-		Wife w = (Wife)m3.get("高琪");
+		Wife w = (Wife)m3.get(1);
 		
 		System.out.println(w.name);
 	}
